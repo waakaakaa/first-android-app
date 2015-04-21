@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">微信</string>
+    <string name="address_list">通讯录</string>
+    <string name="explore">发现</string>
+    <string name="me">我</string>
+    <string name="title_activity_moments">MomentsActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+</resources>

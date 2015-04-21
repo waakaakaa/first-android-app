@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <cn.zx.firstapplication.widget.PullDownListView
+        android:id="@+id/pullDownListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#424242">
+
+        <RelativeLayout
+            android:id="@+id/layoutHeader"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentTop="true">
+
+            <cn.zx.firstapplication.widget.EyeView
+                android:id="@+id/eyeView"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp" />
+
+        </RelativeLayout>
+    </cn.zx.firstapplication.widget.PullDownListView>
+
+</LinearLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/sv_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/ll_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_contact_shortcut"
+        android:layout_width="20dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" />
+
+    <RelativeLayout
+        android:id="@+id/rr_contact"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:background="@color/deep_dark"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_contact_shortcut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="A"
+            android:textColor="@color/white"
+            android:textSize="80sp" />
+    </RelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context="cn.zx.firstapplication.ui.MomentsActivity">
+
+
+
+    <View
+        android:id="@+id/v_moments_cover"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="@dimen/height_top_and_bottom"
+        android:background="@color/green" />
+
+    <ListView
+        android:id="@+id/lv_moments"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/v_moments_cover"
+        android:background="@color/tiny_dark" />
+
+    <RelativeLayout
+        android:id="@+id/rr_moments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="90dp"
+            android:background="@color/shadow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/iv_avatar"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_toLeftOf="@id/iv_avatar"
+            android:text="张欣"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_moments_circle"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="@dimen/height_top_and_bottom"
+        android:scaleType="center"
+        android:src="@drawable/moments_circle" />
+
+    <LinearLayout
+        android:id="@+id/ll_moments_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_top_and_bottom"
+        android:layout_alignParentTop="true"
+        android:background="@color/deep_dark"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_horizontal"
+            android:text="Moments"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_large" />
+
+    </LinearLayout>
+
+</RelativeLayout>
