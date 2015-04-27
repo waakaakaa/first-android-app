@@ -3,17 +3,32 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/img"
+    <FrameLayout
+        android:id="@+id/itb_fl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:id="@+id/iv_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/iv_selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </FrameLayout>
+
 
     <TextView
-        android:id="@+id/tv"
+        android:id="@+id/tv_normal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/img"
+        android:layout_below="@id/itb_fl"
         android:layout_centerInParent="true" />
+
+
 </RelativeLayout>

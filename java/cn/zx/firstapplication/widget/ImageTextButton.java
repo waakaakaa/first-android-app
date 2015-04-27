@@ -1,5 +1,6 @@
 package cn.zx.firstapplication.widget;
 
+import android.animation.ArgbEvaluator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -14,8 +15,12 @@ import cn.zx.firstapplication.R;
  * Created by apple on 15-4-1.
  */
 public class ImageTextButton extends RelativeLayout {
-    private ImageView img;
-    private TextView tv;
+    private ImageView ivNormal;
+    private ImageView ivSelected;
+    private TextView tvNormal;
+    private int colorNormal;
+    private int colorSelected;
+    private ArgbEvaluator argbEvaluator;
 
     public ImageTextButton(Context context) {
         super(context, null);
@@ -24,40 +29,36 @@ public class ImageTextButton extends RelativeLayout {
     public ImageTextButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         LayoutInflater.from(context).inflate(R.layout.view_image_text_button, this, true);
-        img = (ImageView) findViewById(R.id.img);
-        tv = (TextView) findViewById(R.id.tv);
+        ivNormal = (ImageView) findViewById(R.id.iv_normal);
+        ivSelected = (ImageView) findViewById(R.id.iv_selected);
+        tvNormal = (TextView) findViewById(R.id.tv_normal);
+        argbEvaluator = new ArgbEvaluator();
         setClickable(true);
         setFocusable(true);
 
 
-        TypedArray a = context.obtainStyledAttributes(attributeSet, R.styleable.ITButton);
-        int imgId = a.getResourceId(R.styleable.ITButton_img, -1);
-        String s = a.getString(R.styleable.ITButton_text);
-        int color = a.getColor(R.styleable.ITButton_textColor, -1);
-        float size = a.getDimension(R.styleable.ITButton_textSize, -1.0f);
+        TypedArray a = context.obtainStyledAttributes(attributeSet, R.styleable.widget);
+        int imgNormalId = a.getResourceId(R.styleable.widget_img_normal, -1);
+        int imgSelectedId = a.getResourceId(R.styleable.widget_img_selected, -1);
+        String s = a.getString(R.styleable.widget_text);
+        colorNormal = a.getColor(R.styleable.widget_textColor_normal, -1);
+        colorSelected = a.getColor(R.styleable.widget_textColor_selected, -1);
+        float size = a.getDimension(R.styleable.widget_textSize, -1.0f);
 
-        setImgResource(imgId);
-        setText(s);
-        setTextColor(color);
-        setTextSize(size);
+        ivNormal.setImageResource(imgNormalId);
+        ivSelected.setImageResource(imgSelectedId);
+        tvNormal.setText(s);
+        //tvNormal.setTextColor(colorNormal);
+        tvNormal.setTextSize(size);
 
         a.recycle();
 
     }
 
-    public void setImgResource(int id) {
-        img.setImageResource(id);
-    }
-
-    public void setText(String s) {
-        tv.setText(s);
-    }
-
-    public void setTextColor(int color) {
-        tv.setTextColor(color);
-    }
-
-    public void setTextSize(float size) {
-        tv.setTextSize(size);
+    public void updateAlpha(int alpha) {
+        ivNormal.setImageAlpha(255 - alpha);
+        ivSelected.setImageAlpha(alpha);
+        tvNormal.setTextColor((int) (argbEvaluator.evaluate((float) alpha / 255.0f, colorNormal, colorSelected)));
+        invalidate();
     }
 }
